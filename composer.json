@@ -1,0 +1,33 @@
+{
+    "name": "Rym/Parser",
+    "type": "library",
+    "description": "HTML manipulation written in PHP",
+    "keywords": ["html"],
+    "license": "GPL-3.0",
+    "target-dir": "Rym",
+    "authors": [
+        {
+            "name": "Alexander Rymarchik",
+            "email": "rym.the.great@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "rym.the.great@gmail.com"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.zendframework.com/"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Rym\\": "./"
+        }
+    },
+    "require": {
+        "zendframework/zend-http": "2.2.*",
+        "zendframework/zend-dom" : "2.2.*"
+    }
+}
