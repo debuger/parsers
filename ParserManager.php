@@ -59,7 +59,6 @@ class ParserManager {
     {
         $this->node = $node;
         $this->xpath = new DOMXPath($node->ownerDocument);
-//        $this->getStack()->clear();
     }
 
     /**
@@ -88,29 +87,6 @@ class ParserManager {
             }
         }
         return $result;
-    }
-
-    /**
-     * Remove nodes from current node according to current stack
-     */
-    public function delete()
-    {
-        foreach ($this->getStack()->getDelete() as $value) {
-            $tmp = $this->xpath->evaluate($value['path']);
-            if ($node = $tmp->item(0)) {
-                switch($node->nodeType) {
-                    case XML_ATTRIBUTE_NODE:
-                        $node->ownerElement->removeAttribute($node->name);
-                        break;
-                    case XML_ELEMENT_NODE:
-                    case XML_TEXT_NODE:
-                        $node->parentNode->removeChild($node);
-                        break;
-                }
-            } else {
-                //@TODO: add logging of failed searches
-            }
-        }
     }
 
     /**
